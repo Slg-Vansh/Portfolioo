@@ -203,6 +203,7 @@ export default function Home() {
       <Toolkit zone={zone} setZone={setZone} />
       <Works />
       <Experience />
+      <Certifications />
       <Approach />
       <Contact />
       <Footer />
@@ -678,6 +679,107 @@ function Experience() {
             ))}
           </div>
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Certifications & Achievements ---------- */
+const CERTIFICATES = [
+  {
+    title: "AMD Developer Hackathon: ACT II",
+    issuer: "lablab.ai · NativelyAI",
+    date: "Jul 2026",
+    category: "HACKATHON",
+    href: "/certificates/amd-developer-hackathon-act-ii.png",
+    detail: "Certificate of completion for completing and submitting a solution during AMD Developer Hackathon: ACT II.",
+  },
+  {
+    title: "AI Generalist — AI Career Accelerator",
+    issuer: "be10x",
+    date: "May 2026",
+    category: "ARTIFICIAL INTELLIGENCE",
+    href: "/certificates/ai-generalist-be10x.pdf",
+    detail: "AI fundamentals, AI product building, agents and autonomous systems, branding, and data analytics.",
+  },
+  {
+    title: "Introduction to Agentic Automation",
+    issuer: "UiPath",
+    date: "Mar 2026",
+    category: "RPA & AUTOMATION",
+    href: "/certificates/uipath-introduction-to-agentic-automation.pdf",
+    detail: "UiPath course completion covering the introduction to agentic automation.",
+  },
+  {
+    title: "Introduction to Automation",
+    issuer: "UiPath",
+    date: "Apr 2026",
+    category: "RPA & AUTOMATION",
+    href: "/certificates/uipath-introduction-to-automation.pdf",
+    detail: "UiPath course completion covering the fundamentals of automation.",
+  },
+  {
+    title: "Python Using AI Workshop",
+    issuer: "AI for Techies",
+    date: "Feb 2026",
+    category: "PYTHON",
+    href: "/certificates/python-using-ai-workshop.pdf",
+    detail: "Workshop certificate covering AI-assisted Python coding, debugging, and interactive visualizations.",
+  },
+  {
+    title: "10X Techies Workshop",
+    issuer: "AI for Techies",
+    date: "May 2026",
+    category: "AI & SOFTWARE",
+    href: "/certificates/10x-techies-workshop.pdf",
+    detail: "Workshop completion covering rapid application building, software testing automation, and data analysis.",
+  },
+  {
+    title: "Prompt Engineering — Level 1",
+    issuer: "Prompt Engineering Training",
+    date: "2026",
+    category: "GENERATIVE AI",
+    href: "/certificates/prompt-engineering-level-1.pdf",
+    detail: "Training certificate in prompt engineering. Open the certificate for the exact course details.",
+  },
+  {
+    title: "Prompt Engineering — Level 2",
+    issuer: "Prompt Engineering Training",
+    date: "2026",
+    category: "GENERATIVE AI",
+    href: "/certificates/prompt-engineering-level-2.pdf",
+    detail: "Advanced prompt engineering training. Open the certificate for the exact course details.",
+  },
+];
+
+function Certifications() {
+  return (
+    <section id="certifications" className="border-t border-[var(--border)] px-6 py-28 md:px-10 md:py-40">
+      <div className="mx-auto max-w-[1400px]">
+        <div className="flex flex-col gap-5 border-b border-[var(--border)] pb-8 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[var(--muted-foreground)]">05 / Certifications & Achievements</p>
+            <h3 className="mt-4 font-display text-4xl font-semibold tracking-tight md:text-6xl">Proof of practice.</h3>
+          </div>
+          <p className="max-w-md text-sm text-[var(--muted-foreground)] md:text-base">Hackathon experience and focused training across AI, Python, and automation.</p>
+        </div>
+        <ul className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {CERTIFICATES.map((cert, i) => (
+            <li key={cert.title} className="group flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--cream)] p-6 transition-transform duration-300 hover:-translate-y-1 md:p-7">
+              <div className="flex items-start justify-between gap-3">
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent-warm)]">0{i + 1} / {cert.category}</span>
+                <span className="font-mono text-[10px] text-[var(--muted-foreground)]">{cert.date}</span>
+              </div>
+              <div className="my-7 flex h-14 w-14 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--paper)] text-2xl" aria-hidden="true">{i === 0 ? "🏆" : i === 1 ? "✦" : i === 2 || i === 3 ? "↗" : "⌘"}</div>
+              <h4 className="font-display text-xl font-semibold tracking-tight md:text-2xl">{cert.title}</h4>
+              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted-foreground)]">{cert.issuer}</p>
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-[var(--muted-foreground)]">{cert.detail}</p>
+              <a href={cert.href} target="_blank" rel="noreferrer" data-cursor="view certificate" className="mt-7 inline-flex items-center justify-between border-t border-[var(--border)] pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ink)] transition-colors hover:text-[var(--accent-warm)]">
+                View certificate <span className="text-lg text-[var(--accent-warm)]">↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
