@@ -59,6 +59,7 @@ const PROJECTS: {
   href: string;
   visual: VisualVariant;
   hackathon?: boolean;
+  cta?: string;
 }[] = [
   {
     kpi: "10+ modules",
@@ -69,6 +70,16 @@ const PROJECTS: {
     href: "https://github.com/Slg-Vansh",
     visual: "product",
     hackathon: true,
+  },
+  {
+    kpi: "Live production site",
+    title: "LafzLoom — Interactive Literary Journal",
+    stack: "React · Vite · Three.js · Supabase · Vercel",
+    tag: "FULL-STACK WEB",
+    body: "Built and launched an immersive literary platform for a creative team, featuring a 3D botanical garden, interactive flipbook-style journal, editorial sections, and a submission workflow backed by Supabase. Includes private file storage and an authenticated editorial dashboard to review submissions and update their status.",
+    href: "https://lafzloom.vercel.app/",
+    visual: "product",
+    cta: "Visit live site ↗",
   },
   {
     kpi: "3hr → 3min",
@@ -546,7 +557,7 @@ function ProjectCard({ p, i }: { p: (typeof PROJECTS)[number]; i: number }) {
           {/* hover overlay */}
           <div className="pointer-events-none absolute inset-0 flex items-end justify-between bg-[var(--ink)]/0 p-6 transition-colors duration-500 group-hover:bg-[var(--ink)]/10">
             <span className="translate-y-3 rounded-full bg-[var(--paper)] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ink)] opacity-0 shadow-md transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-              View case on GitHub ↗
+              {p.cta || "View case on GitHub ↗"}
             </span>
           </div>
 
@@ -558,13 +569,13 @@ function ProjectCard({ p, i }: { p: (typeof PROJECTS)[number]; i: number }) {
           {p.hackathon && (
             <div className="absolute right-4 top-4 flex flex-col items-end gap-1.5">
               <span className="flex items-center gap-1.5 rounded-full border border-[var(--accent-warm)]/70 bg-[var(--ink)]/85 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--accent-warm)] backdrop-blur shadow-lg">
-                🏅 AMD Developer Hackathon 2026
+                🏅 AMD Developer Hackathon: ACT II
               </span>
               <span className="rounded-full border border-[var(--accent-warm)]/30 bg-[var(--accent-warm)]/10 px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.18em] text-[var(--accent-warm)]">
-                Official Submission
+                Submission Completed
               </span>
               <span className="rounded-full bg-[var(--ink)]/60 px-2.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--paper)]/70 backdrop-blur">
-                Results Pending
+                Certificate of Completion
               </span>
             </div>
           )}
